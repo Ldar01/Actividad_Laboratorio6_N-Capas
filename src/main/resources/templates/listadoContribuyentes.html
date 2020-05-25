@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado de Contribuyentes</title>
+</head>
+<body>
+	
+
+	<table>
+		<thead>
+			<th>Codigo de Contribuyente</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>NIT</th>
+			<th>Fecha Ingreso</th>
+			<th>Importancia</th>
+		</thead>
+		<tbody>
+			<th:block th:each="importancia, row:${importancias}">
+				<tr th:each="contribuyente : ${importancia.contribuyente}">
+					<td th:text="${contribuyente.c_contribuyente}"></td>
+					<td th:text="${contribuyente.s_nombre}"></td>
+					<td th:text="${contribuyente.s_apellido}"></td>
+					<td th:text="${contribuyente.s_nit}"></td>
+					<td th:text="${contribuyente.f_fecha}"></td>
+					<td th:text="${importancia.s_importancia}"></td>
+				</tr>
+			</th:block> 
+		</tbody>
+	</table>
+	<br>
+	<form th:action="@{/index}">
+		<input type="submit" value="Regresar">
+	</form>
+</body>
+</html>
